@@ -6,14 +6,25 @@ from gtts import gTTS
 from weather import weatherspeak
 import playsound
 from time1 import datespeak,timespeak
-
-
-
+from pathlib import Path
+with open ("name.txt","r") as f:
+    named=f.read()
 
 text_speech=pyttsx3.init()
-
-
-
+def setname():
+    text_speech.say("What Would You like me to call you?")
+    text_speech.runAndWait()
+    with sr.Microphone() as nae:
+        name=r.listen(nae)
+        
+        named=r.recognize_google(name)
+        named1=str(named)
+        print("You said your name is: {}".format(named))
+        with open ("name.txt", "w") as f:
+            f.write(str(named1))
+    iwillcallyoutext="All right I Will call you",named1
+    text_speech.say(iwillcallyoutext)
+    text_speech.runAndWait()
 
 
 T=True
@@ -31,16 +42,29 @@ while True:
         text_speech.runAndWait()
         True
 
-    if "date" in text:
+    elif "date" in text:
         text_speech.say(datespeak)
         text_speech.runAndWait()
         True
-    if "time" in text:
+    elif "time" in text:
         text_speech.say(timespeak)
         text_speech.runAndWait()
         True
-    if "beans" in text:
+    elif "beans" in text:
         
         
         playsound.playsound ('yummy.mp3')
         True
+
+    elif "your name" in text:
+        text_speech.say("My name is Python AI Technology, or Pat for short")
+        text_speech.runAndWait()
+
+    elif "set name" in text:
+        setname()
+    
+    elif "what's my name" in text:
+        yournameistext="You told me your name is",named
+        text_speech.say(yournameistext)
+        text_speech.runAndWait()
+
