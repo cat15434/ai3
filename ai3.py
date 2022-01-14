@@ -5,12 +5,15 @@ import speech_recognition as sr
 from gtts import gTTS
 from weather import weatherspeak
 import playsound
-from time1 import datespeak,timespeak
+from time1 import datespeak,timespeak,greeting
 from pathlib import Path
+import math
 with open ("name.txt","r") as f:
     named=f.read()
 
 text_speech=pyttsx3.init()
+
+
 def setname():
     text_speech.say("What Would You like me to call you?")
     text_speech.runAndWait()
@@ -26,7 +29,39 @@ def setname():
     text_speech.say(iwillcallyoutext)
     text_speech.runAndWait()
 
+def calculator():
+    text_speech.say("What would you like me to calculate?")
+    text_speech.runAndWait()
+   
+    r=sr.Recognizer()
+    with sr.Microphone() as sourced:
+        math1= r.listen(sourced)
 
+        math2= r.recognize_google(math1)
+        print (math2)
+        num1 = math2[0]
+        op = math2[2]
+        num2= math2[4]
+        print(num1,num2,op)
+        def calculate(op,num1,num2):
+            if "+" in op:
+                a=int(num1)+int(num2)
+                
+            elif "*" in op:
+                a=int(num1)*int(num2)
+            elif"-" in op:
+                a=int(num1)-int(num2)
+            elif "/" in op:
+                a=int(num1)/int(num2)
+            elif "^":
+                a=int(num1)**int(num2)
+                b=num1,"to the power of",num2,"equals",a
+            return b
+        a=calculate(op,num1,num2)
+        print(a)
+
+
+greeting1=greeting,named
 T=True
 F=False
 r=sr.Recognizer()
@@ -49,6 +84,8 @@ while True:
     elif "time" in text:
         text_speech.say(timespeak)
         text_speech.runAndWait()
+        text_speech.say(greeting1)
+        text_speech.runAndWait()
         True
     elif "beans" in text:
         
@@ -59,12 +96,18 @@ while True:
     elif "your name" in text:
         text_speech.say("My name is Python AI Technology, or Pat for short")
         text_speech.runAndWait()
-
+        True
     elif "set name" in text:
         setname()
-    
+        True
     elif "what's my name" in text:
         yournameistext="You told me your name is",named
         text_speech.say(yournameistext)
         text_speech.runAndWait()
+        True
+    elif "calculate" in text:
+
+        calculator()
+      
+
 
