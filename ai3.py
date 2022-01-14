@@ -40,5 +40,7 @@ while True:
         text_speech.runAndWait()
         True
     if "beans" in text:
-        playsound.playsound('yummy.mp3', False)
-    
+        
+        
+        playsound.playsound ('yummy.mp3')
+        True
