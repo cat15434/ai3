@@ -4,7 +4,7 @@ import pyaudio
 import speech_recognition as sr
 from gtts import gTTS
 from weather import weatherspeak
-
+import playsound
 from time1 import datespeak,timespeak
 
 
@@ -39,4 +39,6 @@ while True:
         text_speech.say(timespeak)
         text_speech.runAndWait()
         True
- 
+    if "beans" in text:
+        playsound.playsound('yummy.mp3', False)
+    
