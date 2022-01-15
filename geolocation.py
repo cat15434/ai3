@@ -9,5 +9,10 @@ address = location.raw['address']
 city = address.get('city', '')
 state = address.get('state', '')
 country = address.get('country', '')
+current_city=city
+current_state=state
+current_country=country
 
-print(city,state,country)
+
+
+location_text="You are currently in",city,state,country
