@@ -46,8 +46,7 @@ mindecimals="{:.1f}".format(curtemp)
 mindecimals1="{:.1f}".format(feelslike)
 str(mindecimals)
 str(mindecimals1)
-print(curtemp)
-print(feelslike)
+
 
 
 
@@ -71,7 +70,6 @@ def goodspeech(mindecimals):
     mindecimals="negative",z
     return mindecimals
 mindecimals=goodspeech(mindecimals)
-print(mindecimals)
-print(mindecimals1)
+
 
 weatherspeak=("In", city,state ,"The temperature is",mindecimals,"Degrees Celsius","but it feels like",mindecimals1,"Degrees Celsius")
