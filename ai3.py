@@ -256,6 +256,7 @@ def choices():
                 text_speech.runAndWait()
                 time.sleep(2)
                 text_speech.say("You can ask me to adjust your brightness by saying adjust brightness")
+                text_speech.runAndWait()
         
         
         elif "adjust brightness" in text:
