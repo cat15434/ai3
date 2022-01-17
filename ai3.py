@@ -9,8 +9,6 @@ import ttstexts as tts
 import webbrowser
 import playsound
 import requests
-from urls import mathclassurl
-from urls import indigenousstudiesurl
 import time
 import simplejson
 from bs4 import BeautifulSoup
