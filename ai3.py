@@ -18,8 +18,8 @@ import psutil
 from battery import batterytalk
 from screenbrightness import currentbrightnesstext
 from screenbrightness import adjustscreenbrightness
-from playgame import rangeofgame
-\
+from playgame import gamestart
+
 
 goodbye=tts.goodbyetext
 class HiddenPrints:
@@ -46,14 +46,15 @@ def getaudio():
   
   
     with sr.Microphone() as source:
+        print("ai3")
         r.adjust_for_ambient_noise(source)
         audio=r.listen(source)
         said=""
-
+        
         try:
             
             said=r.recognize_google(audio)
-        
+            print(said)
         
         except Exception as e:
            
@@ -271,8 +272,11 @@ def choices():
 
 
         elif "play a game" in text:
-            rangeofgame()
+            gamestart()
+            continue
 ## put all commands wanted before goodbye as wake() will not work otherwise
+        
+        
         elif "goodbye" in text:
             text_speech.say(goodbye)
             text_speech.runAndWait()
@@ -281,7 +285,7 @@ def choices():
 
 
 
-activatemsg=greeting1,"how may i help you"      
+activatemsg=greeting1,named,"how may i help you"      
 
 
 def wake():

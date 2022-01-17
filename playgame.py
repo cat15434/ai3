@@ -1,7 +1,6 @@
 import random
 from pathlib import Path
 from tkinter import E
-
 import pyttsx3
 import speech_recognition as sr
 
@@ -35,18 +34,18 @@ def playagainlost():
 def getaudiomath():
     print("Listening")
     r=sr.Recognizer()
-    with sr.Microphone() as source:
+    with sr.Microphone() as source1:
 
-        audio=r.listen(source)
-        said=""
+        audio1=r.listen(source1)
+        said1=""
 
         
         try:    
-            said=r.recognize_google(audio)
-            print(said)
+            said1=r.recognize_google(audio1)
+            print(said1)
         except Exception as e:
             e=1+1
-        return said.lower()
+        return said1.lower()
 
 
 def game(a,y,guessesallowed):
@@ -169,5 +168,5 @@ def rangeofgame():
     return y , rangetext,guessesallowed
 
 
-
-rangeofgame()
+def gamestart():
+ rangeofgame()
