@@ -8,15 +8,16 @@ if you have any suggestions please pm me on discord Solar#9806 I intend to keep 
 school student and will be going to college within a year or two (for computer coding) if anyone has good apis or any usefull sources or good ideas for ai in this project dm me
 on my instagram. I plan on also making a hardware version of pat in either glasses form or something similar idk why just seems cool to me 
 
-January 14th 2021 started development of play game function
+January 16th 2021 started development of play game function
 
-Jan 15th 2021 finished play game function.
+Jan 17th 2021 finished play game function.
     -started redevelopment of calculator
-Plans for jan 15th 2021
+Plans for jan 17th 2021
 _______________________
 put </ for done and x for not done
-Get calculate function working x
+Get calculate function working </
 Research phone conectivity for notifications texting and calling x
-Add in calendar and alarms+timers x 
+Add in alarms </
 play music function x 
+add a listening sound effect x
 _______________________________________________________________________

@@ -28,4 +28,5 @@ def adjustscreenbrightness():
     current_brightness2 = sbc.get_brightness()
     brighttext="Ok your brightness is now set to",current_brightness2 , "percent"
     talk.say(brighttext)
+    talk.runAndWait()
       

@@ -11,6 +11,7 @@ import playsound
 import requests
 import time
 import simplejson
+from calculate import calculator
 from bs4 import BeautifulSoup
 from lxml import html
 import wikipedia
@@ -19,6 +20,7 @@ from battery import batterytalk
 from screenbrightness import currentbrightnesstext
 from screenbrightness import adjustscreenbrightness
 from playgame import gamestart
+from alarms import alarmsfunc
 
 
 goodbye=tts.goodbyetext
@@ -40,13 +42,17 @@ with open ("name.txt","r") as f:
 
 text_speech=pyttsx3.init()
 
-
+    
+    
 def getaudio():
+    
     r=sr.Recognizer()
-  
+    
   
     with sr.Microphone() as source:
         print("ai3")
+        
+        
         r.adjust_for_ambient_noise(source)
         audio=r.listen(source)
         said=""
@@ -93,39 +99,9 @@ def setname():
 
 
 
-def calculator():
-    text_speech.say("What would you like me to calculate?")
-    text_speech.runAndWait()
 
-    r=sr.Recognizer()
-    with sr.Microphone() as sourced:
-        math1= r.listen(sourced)
 
-    math2= r.recognize_google(math1)
-
-    print (math2)
-    num1 = math2[0]
-    op = math2[2]
-    num2= math2[4]
-    print(num1,num2,op)
-   
-   
-    def calculate(op,num1,num2):
-        if "+" in op:
-            a=int(num1)+int(num2)
-            
-        elif "*" in op:
-            a=int(num1)*int(num2)
-        elif"-" in op:
-            a=int(num1)-int(num2)
-        elif "/" in op:
-            a=int(num1)/int(num2)
-        elif "^":
-            a=int(num1)**int(num2)
-            b=num1,"to the power of",num2,"equals",a
-        return b
-    a=calculate(op,num1,num2)
-    print(a)
+  
 
 
 greeting1=tts.greeting,named
@@ -189,7 +165,7 @@ def choices():
         elif "calculate" in text:
 
             calculator() 
-     
+            continue
      
         elif "where am i" in text:
             text_speech.say(tts.location_text)   
@@ -275,7 +251,8 @@ def choices():
             gamestart()
             continue
 ## put all commands wanted before goodbye as wake() will not work otherwise
-        
+        elif "set an alarm" in text:
+            alarmsfunc()
         
         elif "goodbye" in text:
             text_speech.say(goodbye)
@@ -300,7 +277,7 @@ def wake():
             text_speech.runAndWait()
             choices()
 
-wake()
+getaudio()
 
            
 
